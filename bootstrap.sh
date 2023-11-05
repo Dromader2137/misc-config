@@ -21,7 +21,7 @@ paru -S rustup
 rustup default stable
 
 # Tools
-paru -S neovim nvim-ranger-git
+paru -S neovim nvim-ranger-git alacritty
 git clone https://github.com/leftwm/leftwm.git
 cd leftwm
 cargo build --profile optimized
