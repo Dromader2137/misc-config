@@ -18,7 +18,7 @@ cd ..
 paru -S xorg xorg-xinit
 
 # Tools
-paru -S neovim nvim-ranger-git alacritty
+paru -S neovim alacritty zip unzip dmenu 
 git clone https://github.com/leftwm/leftwm.git
 cd leftwm
 cargo build --profile optimized
@@ -37,14 +37,17 @@ ln -s .config/leftwm/themes/basic_polybar .config/leftwm/themes/current
 cargo install bat
 cargo install du-dust
 cargo install exa
+cargo install wiki-tui
+cargo install cargo-info
 
 # Shell
 cargo install nu
-cp .cargo/bin/nu /usr/bin/nu
+sudo cp .cargo/bin/nu /usr/bin/nu
 sudo sh -c 'echo "/usr/bin/nu" >> /etc/shells'
 chsh -s /usr/bin/nu
 
 # Final
+paru -S ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
 git clone https://github.com/Dromader2137/misc-config
 mv misc-config/.xinitrc .xinitrc
 mv misc-config/env.nu .config/nushell/
