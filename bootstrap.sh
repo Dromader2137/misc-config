@@ -18,7 +18,7 @@ cd ..
 paru -S xorg xorg-xinit picom-git
 
 # Tools
-paru -S neovim alacritty zip unzip dmenu 
+paru -S neovim alacritty zip unzip dmenu npm floorp lazygit
 git clone https://github.com/leftwm/leftwm.git
 cd leftwm
 cargo build --profile optimized
@@ -32,9 +32,11 @@ cd ../.config
 git clone https://github.com/Dromader2137/nvim-config nvim/
 git clone https://github.com/Dromader2137/alacritty-config alacritty/
 git clone https://github.com/Dromader2137/leftwm-config leftwm/
+git clone https://github.com/Dromader2137/nushell-config nushell/
 cd ..
 cp -r leftwm/themes .config/leftwm
-ln -s .config/leftwm/themes/basic_polybar .config/leftwm/themes/current
+rm .config/leftwm/themes/README.md
+ln -s .config/leftwm/themes/basic_lemonbar .config/leftwm/themes/current
 cargo install bat
 cargo install du-dust
 cargo install exa
@@ -51,7 +53,5 @@ chsh -s /usr/bin/nu
 paru -S ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono
 git clone https://github.com/Dromader2137/misc-config
 mv misc-config/.xinitrc .xinitrc
-mv misc-config/env.nu .config/nushell/
-mv misc-config/config.nu .config/nushell/
 
 startx
