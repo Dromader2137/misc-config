@@ -18,7 +18,7 @@ cd ..
 paru -S xorg xorg-xinit picom-git
 
 # Tools
-paru -S neovim alacritty zip unzip dmenu npm floorp lazygit
+paru -S neovim alacritty zip unzip dmenu npm librewolf-bin lazygit
 git clone https://github.com/leftwm/leftwm.git
 cd leftwm
 cargo build --profile optimized
@@ -36,12 +36,13 @@ git clone https://github.com/Dromader2137/nushell-config nushell/
 cd ..
 cp -r leftwm/themes .config/leftwm
 rm .config/leftwm/themes/README.md
-ln -s .config/leftwm/themes/basic_lemonbar .config/leftwm/themes/current
+ln -s .config/leftwm/themes/dr-theme .config/leftwm/themes/current
 cargo install bat
 cargo install du-dust
 cargo install exa
 cargo install wiki-tui
 cargo install cargo-info
+cargo install starship
 
 # Shell
 cargo install nu
