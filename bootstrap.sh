@@ -15,7 +15,7 @@ makepkg -si
 cd ..
 
 # Xorg
-paru -S xorg xorg-xinit
+paru -S xorg xorg-xinit picom-git
 
 # Tools
 paru -S neovim alacritty zip unzip dmenu 
@@ -30,6 +30,7 @@ sudo ln -s "$(pwd)"/target/optimized/leftwm-check /usr/bin/leftwm-check
 sudo ln -s "$(pwd)"/target/optimized/leftwm-command /usr/bin/leftwm-command
 cd ../.config
 git clone https://github.com/Dromader2137/nvim-config nvim/
+git clone https://github.com/Dromader2137/alacritty-config alacritty/
 git clone https://github.com/Dromader2137/leftwm-config leftwm/
 cd ..
 cp -r leftwm/themes .config/leftwm
@@ -52,4 +53,5 @@ git clone https://github.com/Dromader2137/misc-config
 mv misc-config/.xinitrc .xinitrc
 mv misc-config/env.nu .config/nushell/
 mv misc-config/config.nu .config/nushell/
-rm -rf misc-config
+
+startx
