@@ -3,8 +3,9 @@
 mkdir .config
 mkdir .config/nushell
 
-# Git
-sudo pacman -S --needed git
+# Git & Rust
+sudo pacman -S --needed git rustup
+rustup default stable
 
 # AUR Helper
 sudo pacman -S --needed base-devel
@@ -15,10 +16,6 @@ cd ..
 
 # Xorg
 paru -S xorg xorg-xinit
-
-# Rust
-paru -S rustup
-rustup default stable
 
 # Tools
 paru -S neovim nvim-ranger-git alacritty
@@ -35,6 +32,7 @@ cd ../.config
 git clone https://github.com/Dromader2137/nvim-config nvim/
 git clone https://github.com/Dromader2137/leftwm-config leftwm/
 cd ..
+cp -r leftwm/themes .config/leftwm
 ln -s .config/leftwm/themes/basic_polybar .config/leftwm/themes/current
 cargo install bat
 cargo install du-dust
