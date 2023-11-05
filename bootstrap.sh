@@ -43,6 +43,8 @@ cargo install exa
 cargo install wiki-tui
 cargo install cargo-info
 cargo install starship
+cargo install bottom
+cargo install speedtest-rs
 
 # Shell
 cargo install nu
