@@ -20,7 +20,7 @@ yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom
 yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
 
 # Tools
-yay -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils cmake
+yay -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils cmake polybar
 systemctl enable --now bluetooth.service
 
 #WM
