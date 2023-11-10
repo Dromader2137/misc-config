@@ -3,14 +3,14 @@
 mkdir .config
 
 # Git & Rust
-sudo pacman -Syy --needed --noconfirm git rustup
+sudo pacman -Syy --needed --noconfirm git rustup go
 rustup default stable
 
 # AUR Helper
 sudo pacman -S --needed --noconfirm base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 
 # Xorg
@@ -59,3 +59,5 @@ mv misc-config/.xinitrc .xinitrc
 
 # Font
 yay -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
+
+rm -rf misc-config/ yay/ .bashrc .bash_profile .bash_history
