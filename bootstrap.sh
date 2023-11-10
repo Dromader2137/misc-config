@@ -1,7 +1,6 @@
 #!/bin/bash
 
 mkdir .config
-mkdir .config/nushell
 
 # Git & Rust
 sudo pacman -S --needed --noconfirm git rustup
@@ -9,16 +8,16 @@ rustup default stable
 
 # AUR Helper
 sudo pacman -S --needed --noconfirm base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
+git clone https://aur.archlinux.org/yay.git
+cd yay
 makepkg -si
 cd ..
 
 # Xorg
-paru -S --noconfirm xorg xorg-xinit xorg-xrandr picom-git
+yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom-git
 
 # Tools
-paru -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils
+yay -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils
 systemctl enable --now bluetooth.service
 
 #WM
@@ -38,33 +37,30 @@ rm .config/leftwm/themes/README.md
 ln -s .config/leftwm/themes/dr-theme .config/leftwm/themes/current
 
 #Audio
-paru -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse
+yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse
 systemctl enable --now pipewire-pulse.service
 
 #Text editors
-paru -S --noconfirm neovim nvim-packer-git
+yay -S --noconfirm neovim nvim-packer-git
 git clone https://github.com/Dromader2137/nvim-config .config/nvim/
-paru -S --noconfirm vim
-paru -S --noconfirm nano
-paru -S --noconfirm helix
+yay -S --noconfirm vim
+yay -S --noconfirm nano
+yay -S --noconfirm helix
 
 #Terminal emulator
 paru -S --noconfirm alacritty
-git clone https://github.com/Dromader2137/alacritty-config alacritty/
+git clone https://github.com/Dromader2137/alacritty-config .config/alacritty/
 
 #Shell
-git clone https://github.com/Dromader2137/nushell-config nushell/
-cargo install nu
+git clone https://github.com/Dromader2137/fish-config .config/fish/
+yay -S --noconfirm fish
 cargo install starship
-.cargo/bin/starship preset bracketed-segments -o .config/starship.toml
-sudo cp .cargo/bin/nu /usr/bin/nu
-sudo sh -c 'echo "/usr/bin/nu" >> /etc/shells'
-chsh -s /usr/bin/nu
+chsh -s /usr/bin/fish
 
 #Misc
 cargo install cargo-info
-cargo install bottom
+cargo install exa 
 mv misc-config/.xinitrc .xinitrc
 
 # Font
-paru -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
+yay -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
