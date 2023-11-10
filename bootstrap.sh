@@ -14,10 +14,13 @@ makepkg -si
 cd ..
 
 # Xorg
-yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom-git
+yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom
+
+#Audio
+yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
 
 # Tools
-yay -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils
+yay -S --noconfirm zip unzip dmenu npm librewolf-bin lazygit nvim-packer-git bluez bluez-utils cmake
 systemctl enable --now bluetooth.service
 
 #WM
@@ -36,15 +39,9 @@ cp -r leftwm/themes .config/leftwm
 rm .config/leftwm/themes/README.md
 ln -s .config/leftwm/themes/dr-theme .config/leftwm/themes/current
 
-#Audio
-yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse
-systemctl enable --now pipewire-pulse.service
-
 #Text editors
 yay -S --noconfirm neovim nvim-packer-git
 git clone https://github.com/Dromader2137/nvim-config .config/nvim/
-yay -S --noconfirm vim
-yay -S --noconfirm nano
 yay -S --noconfirm helix
 
 #Terminal emulator
@@ -53,12 +50,10 @@ git clone https://github.com/Dromader2137/alacritty-config .config/alacritty/
 
 #Shell
 git clone https://github.com/Dromader2137/fish-config .config/fish/
-yay -S --noconfirm fish
-cargo install starship
+yay -S --noconfirm fish starship
 chsh -s /usr/bin/fish
 
 #Misc
-cargo install cargo-info
 cargo install exa 
 mv misc-config/.xinitrc .xinitrc
 
