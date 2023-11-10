@@ -3,7 +3,7 @@
 mkdir .config
 
 # Git & Rust
-sudo pacman -Syy --needed --noconfirm git rustup go
+sudo pacman -Syyu --needed --noconfirm git rustup go
 rustup default stable
 
 # AUR Helper
