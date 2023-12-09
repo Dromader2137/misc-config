@@ -16,11 +16,19 @@ cd ..
 # Xorg
 yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom
 
+# Wayland
+if [ $(lspci -k | grep "NVIDIA" | wc -l) = 2 ]; then
+	yay -S --noconfirm hyprland-nvidia-git nvidia-open
+else
+	yay -S --noconfirm hyprland
+fi
+yay -S --noconfirm waybar-hyprland swaylock swaybg
+
 #Audio
 yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
 
 # Tools
-yay -S --noconfirm zip unzip dmenu npm floorp lazygit nvim-packer-git bluez bluez-utils cmake polybar blueman pavucontrol pinta obs glow lxappearance
+yay -S --noconfirm gum glow zip unzip dmenu dmwnu-wl npm floorp lazygit nvim-packer-git bluez bluez-utils cmake polybar pulsemixer bluetuith obs glow lxappearance nwg-look
 systemctl enable --now bluetooth.service
 
 #WM
@@ -28,6 +36,7 @@ git clone https://github.com/leftwm/leftwm.git
 cd leftwm
 cargo build --profile optimized
 sudo ln -s "$(pwd)"/target/optimized/leftwm /usr/bin/leftwm
+yay -S --noconfirm helix
 sudo ln -s "$(pwd)"/target/optimized/leftwm-worker /usr/bin/leftwm-worker
 sudo ln -s "$(pwd)"/target/optimized/lefthk-worker /usr/bin/lefthk-worker
 sudo ln -s "$(pwd)"/target/optimized/leftwm-state /usr/bin/leftwm-state
@@ -39,10 +48,11 @@ cp -r leftwm/themes .config/leftwm
 rm .config/leftwm/themes/README.md
 ln -s .config/leftwm/themes/dr-theme .config/leftwm/themes/current
 
+git clone https://github.com/Dromader2137/hyprland-config .config/hypr/
+
 #Text editors
 yay -S --noconfirm neovim nvim-packer-git
 git clone https://github.com/Dromader2137/nvim-config .config/nvim/
-yay -S --noconfirm helix
 
 #Terminal emulator
 paru -S --noconfirm alacritty
@@ -56,8 +66,9 @@ chsh -s /usr/bin/fish
 #Misc
 cargo install exa 
 mv misc-config/.xinitrc .xinitrc
+mv misc-config/.Xresources .Xresources
 
 # Font
 yay -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
 
-rm -rf misc-config/ yay/ .bashrc .bash_profile .bash_history
+rm -rf misc-config/ yay/ .bashrc .bash_profile .bash_history .bash_logout
