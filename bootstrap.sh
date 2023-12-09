@@ -22,7 +22,7 @@ if [ $(lspci -k | grep "NVIDIA" | wc -l) = 2 ]; then
 else
 	yay -S --noconfirm hyprland
 fi
-yay -S --noconfirm waybar-hyprland swaylock swaybg
+yay -S --noconfirm waybar-hyprland-git waylock swaybg
 
 #Audio
 yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
@@ -49,6 +49,7 @@ rm .config/leftwm/themes/README.md
 ln -s .config/leftwm/themes/dr-theme .config/leftwm/themes/current
 
 git clone https://github.com/Dromader2137/hyprland-config .config/hypr/
+git clone https://github.com/Dromader2137/waybar-config .config/waybar/
 
 #Text editors
 yay -S --noconfirm neovim nvim-packer-git
