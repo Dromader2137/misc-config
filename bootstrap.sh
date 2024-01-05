@@ -68,8 +68,12 @@ chsh -s /usr/bin/fish
 cargo install exa 
 mv misc-config/.xinitrc .xinitrc
 mv misc-config/.Xresources .Xresources
+mv misc-config/.gtkrc-2.0 .gtkrc-2.0
+mkdir .config/gtk-3.0
+mv misc-config/settings.ini .config/gtk-3.0
 
 # Font
 yay -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
+yay -S --noconfirm gruvbox-dark-gtk gruvbox-dark-icons-gtk xcursor-simp1e-gruvbox-dark
 
 rm -rf misc-config/ yay/ .bashrc .bash_profile .bash_history .bash_logout
