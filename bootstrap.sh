@@ -1,6 +1,7 @@
 #!/bin/bash
 
 mkdir .config
+mkdir downloads music videos public pictures docs desktop templates
 
 # Git & Rust
 sudo pacman -Syyu --needed --noconfirm git rustup go
@@ -21,13 +22,13 @@ if [ $(lspci -k | grep "NVIDIA" | wc -l) = 2 ]; then
 	yay -S --noconfirm nvidia-open
 fi
 yay -S --noconfirm hyprland
-yay -S --noconfirm waybar-hyprland-git waylock swaybg nwg-look-bin wl-clipboard dmenu-wl
+yay -S --noconfirm waybar-hyprland-git waylock swaybg nwg-look-bin wl-clipboard dmenu-wl grim slurp
 
 #Audio
 yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
 
 # Tools
-yay -S --noconfirm gum glow zip unzip dmenu npm floorp lazygit nvim-packer-git bluez bluez-utils cmake polybar pulsemixer bluetuith obs glow lxappearance qbittorrent mpd ncmpcpp
+yay -S --noconfirm gum glow zip unzip dmenu npm floorp lazygit nvim-packer-git bluez bluez-utils xdg-user-dirs cmake polybar pulsemixer bluetuith obs glow lxappearance qbittorrent mpd ncmpcpp
 systemctl enable --now bluetooth.service
 
 #WM
@@ -70,6 +71,8 @@ mv dros/.Xresources .Xresources
 mv dros/.gtkrc-2.0 .gtkrc-2.0
 mkdir .config/gtk-3.0
 mv dros/settings.ini .config/gtk-3.0
+mv dros/user-dirs.dirs .config/user-dirs.dirs
+xdg-user-dirs-update
 
 # Font
 yay -S --noconfirm ttf-mononoki-nerd ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono noto-fonts-emoji
