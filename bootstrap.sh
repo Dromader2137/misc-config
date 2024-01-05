@@ -18,17 +18,16 @@ yay -S --noconfirm xorg xorg-xinit xorg-xrandr picom
 
 # Wayland
 if [ $(lspci -k | grep "NVIDIA" | wc -l) = 2 ]; then
-	yay -S --noconfirm hyprland-nvidia-git nvidia-open
-else
-	yay -S --noconfirm hyprland
+	yay -S --noconfirm nvidia-open
 fi
-yay -S --noconfirm waybar-hyprland-git waylock swaybg
+yay -S --noconfirm hyprland
+yay -S --noconfirm waybar-hyprland-git waylock swaybg nwg-look-bin wl-clipboard dmenu-wl
 
 #Audio
 yay -S --noconfirm pipewire pipewire-audio wireplumber pipewire-pulse pipewire-jack
 
 # Tools
-yay -S --noconfirm gum glow zip unzip dmenu dmwnu-wl npm floorp lazygit nvim-packer-git bluez bluez-utils cmake polybar pulsemixer bluetuith obs glow lxappearance nwg-look
+yay -S --noconfirm gum glow zip unzip dmenu npm floorp lazygit nvim-packer-git bluez bluez-utils cmake polybar pulsemixer bluetuith obs glow lxappearance qbittorrent mpd ncmpcpp
 systemctl enable --now bluetooth.service
 
 #WM
